@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - RailEase</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 32px;
+            margin-bottom: 48px;
+            align-items: start;
+        }
+
+        .contact-info-card {
+            background: #fff;
+            border: 1.5px solid var(--light);
+            border-radius: 10px;
+            padding: 28px;
+        }
+
+        .contact-info-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--sky);
+            padding-bottom: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .contact-item .icon {
+            font-size: 22px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .contact-item .info strong {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .contact-item .info span {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .office-hours {
+            background: var(--sky);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+        }
+
+        .office-hours h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .office-hours table {
+            width: 100%;
+            font-size: 13px;
+        }
+
+        .office-hours table thead {
+            display: none;
+        }
+
+        .office-hours table tbody tr {
+            border-bottom: none;
+        }
+
+        .office-hours table tbody tr:hover {
+            background: transparent;
+        }
+
+        .office-hours table tbody td {
+            padding: 4px 0;
+            color: var(--gray);
+        }
+
+        .office-hours table tbody td:first-child {
+            font-weight: 600;
+            color: var(--text);
+            width: 50%;
+        }
+
+        @media (max-width: 760px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Ticker -->
+<div class="ticker-bar">
+    <div class="ticker-inner">
+        <span>Colombo Fort → Kandy | Departs 07:15 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Galle | Departs 09:45 | Delayed 10 min &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Kandy → Badulla | Departs 08:30 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Jaffna | Departs 06:00 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Kandy | Departs 07:15 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Galle | Departs 09:45 | Delayed 10 min &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Kandy → Badulla | Departs 08:30 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Jaffna | Departs 06:00 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <div class="logo">
+            <span class="logo-icon">🚆</span>
+            Rail<span>Ease</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="results.html">Search Trains</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-cta"><a href="booking.html">Reserve a Seat</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Banner -->
+<div class="page-banner">
+    <h1>Contact Us</h1>
+    <p>We're here to help with bookings, cancellations, and general enquiries.</p>
+    <div class="live-date mt-8"></div>
+</div>
+
+<div class="page-wrapper">
+
+    <!-- Success Alert -->
+    <div id="form-success" class="alert alert-success" style="display:none;">
+        ✅ <strong>Message sent!</strong> Thank you for reaching out. We'll respond within 24 hours.
+    </div>
+
+    <div class="contact-layout">
+
+        <!-- Contact Form -->
+        <div class="form-card" style="margin-bottom:0;">
+            <h2>Send a Message</h2>
+
+            <form id="contact-form">
+                <div class="form-field">
+                    <label>Full Name *</label>
+                    <input type="text" id="c-name" placeholder="John Perera">
+                    <span class="error-msg" id="c-name-err"></span>
+                </div>
+
+                <div class="form-field">
+                    <label>Email Address *</label>
+                    <input type="email" id="c-email" placeholder="john@example.com">
+                    <span class="error-msg" id="c-email-err"></span>
+                </div>
+
+                <div class="form-field">
+                    <label>Subject *</label>
+                    <select id="c-subject">
+                        <option value="">-- Select a Topic --</option>
+                        <option value="booking">Booking Issue</option>
+                        <option value="cancel">Cancellation / Refund</option>
+                        <option value="schedule">Schedule Enquiry</option>
+                        <option value="payment">Payment Problem</option>
+                        <option value="feedback">General Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span class="error-msg" id="c-subject-err"></span>
+                </div>
+
+                <div class="form-field">
+                    <label>Booking Reference (optional)</label>
+                    <input type="text" placeholder="e.g. RL-2026-48291">
+                </div>
+
+                <div class="form-field">
+                    <label>Message *</label>
+                    <textarea id="c-message" rows="5" placeholder="Describe your enquiry in detail..."></textarea>
+                    <span class="error-msg" id="c-message-err"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                    Send Message →
+                </button>
+            </form>
+        </div>
+
+        <!-- Contact Info Sidebar -->
+        <div>
+            <div class="contact-info-card">
+                <h3>Get In Touch</h3>
+
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <div class="info">
+                        <strong>Phone</strong>
+                        <span>+94 11 200 0000<br>+94 11 200 0001 (Bookings)</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon">✉️</div>
+                    <div class="info">
+                        <strong>Email</strong>
+                        <span>support@railease.lk<br>bookings@railease.lk</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <div class="info">
+                        <strong>Head Office</strong>
+                        <span>RailEase Pvt. Ltd.<br>No. 12, Station Road<br>Colombo Fort, Colombo 01<br>Sri Lanka</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon">💬</div>
+                    <div class="info">
+                        <strong>Live Chat</strong>
+                        <span>Available on our website<br>Mon – Sat, 06:00 – 22:00</span>
+                    </div>
+                </div>
+
+                <div class="office-hours">
+                    <h4>Office Hours</h4>
+                    <table>
+                        <thead><tr><th>Day</th><th>Hours</th></tr></thead>
+                        <tbody>
+                            <tr><td>Monday – Friday</td><td>08:00 – 18:00</td></tr>
+                            <tr><td>Saturday</td><td>08:00 – 14:00</td></tr>
+                            <tr><td>Sunday</td><td>Closed</td></tr>
+                            <tr><td>Public Holidays</td><td>Closed</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="contact-info-card" style="margin-top:20px;">
+                <h3>Common Questions</h3>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span style="font-size:13px;">How do I cancel my ticket?</span>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <p style="font-size:13px;color:var(--gray);">Log in to your account and go to "My Bookings". Select the booking and click "Cancel". Refunds are processed within 3–5 business days if cancelled 2+ hours before departure.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span style="font-size:13px;">Can I change my travel date?</span>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <p style="font-size:13px;color:var(--gray);">Yes, date changes are allowed up to 24 hours before departure. A rescheduling fee of LKR 100 applies. Contact us or use the self-service portal.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span style="font-size:13px;">Is my e-ticket accepted at the station?</span>
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <p style="font-size:13px;color:var(--gray);">Yes. Show the e-ticket QR code on your phone or a printout to the ticket inspector. No physical ticket collection is needed.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>🚆 RailEase</h4>
+            <p style="font-size:13px;line-height:1.7;">Sri Lanka's most convenient online train ticket booking platform.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="results.html">Search Trains</a></li>
+                <li><a href="booking.html">Book Tickets</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Refund Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="tel:+94112000000">+94 11 200 0000</a></li>
+                <li><a href="mailto:support@railease.lk">support@railease.lk</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 RailEase. All rights reserved. | CSCI 12562 Group Project</p>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

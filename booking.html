@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets - RailEase</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .booking-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 28px;
+            align-items: start;
+            margin-bottom: 48px;
+        }
+
+        .trip-summary {
+            background: #fff;
+            border: 1.5px solid var(--light);
+            border-radius: 10px;
+            padding: 24px;
+            position: sticky;
+            top: 84px;
+        }
+
+        .trip-summary h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 18px;
+            border-bottom: 2px solid var(--sky);
+            padding-bottom: 10px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+
+        .summary-row span:last-child {
+            color: var(--text);
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .summary-total {
+            border-top: 1.5px solid var(--light);
+            margin-top: 16px;
+            padding-top: 14px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--navy);
+        }
+
+        .fare-box {
+            display: none;
+        }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qty-btn {
+            width: 32px;
+            height: 32px;
+            background: var(--sky);
+            border: 1.5px solid var(--light);
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .qty-btn:hover {
+            background: var(--blue);
+            color: #fff;
+            border-color: var(--blue);
+        }
+
+        .qty-display {
+            width: 40px;
+            text-align: center;
+            border: 1.5px solid var(--light);
+            border-radius: 4px;
+            padding: 6px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .steps {
+            display: flex;
+            gap: 0;
+            margin-bottom: 32px;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 12px 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gray);
+            border-bottom: 3px solid var(--light);
+        }
+
+        .step.active {
+            color: var(--blue);
+            border-color: var(--blue);
+        }
+
+        .step.done {
+            color: var(--success);
+            border-color: var(--success);
+        }
+
+        @media (max-width: 760px) {
+            .booking-layout {
+                grid-template-columns: 1fr;
+            }
+            .trip-summary {
+                position: static;
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Ticker -->
+<div class="ticker-bar">
+    <div class="ticker-inner">
+        <span>Colombo Fort → Kandy | Departs 07:15 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Galle | Departs 09:45 | Delayed 10 min &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Kandy → Badulla | Departs 08:30 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Kandy | Departs 07:15 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Galle | Departs 09:45 | Delayed 10 min &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Kandy → Badulla | Departs 08:30 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <div class="logo">
+            <span class="logo-icon">🚆</span>
+            Rail<span>Ease</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="results.html">Search Trains</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-cta"><a href="booking.html">Reserve a Seat</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Banner -->
+<div class="page-banner">
+    <h1>Book Your Ticket</h1>
+    <p>Fill in your passenger details to confirm your reservation.</p>
+</div>
+
+<div class="page-wrapper">
+
+    <!-- Progress Steps -->
+    <div class="steps">
+        <div class="step active">1. Passenger Details</div>
+        <div class="step">2. Review</div>
+        <div class="step">3. Payment</div>
+        <div class="step">4. Confirmation</div>
+    </div>
+
+    <!-- Success Message (hidden) -->
+    <div id="booking-success" class="alert alert-success" style="display:none;">
+        ✅ <strong>Booking Confirmed!</strong> Your ticket has been reserved. A confirmation will be sent to your email.
+        <br><br>
+        <strong>Booking Reference:</strong> RL-2026-<span id="booking-ref"></span> &nbsp;|&nbsp;
+        <strong>Train:</strong> Udarata Menike (1005) &nbsp;|&nbsp;
+        <strong>Colombo Fort → Kandy</strong> &nbsp;|&nbsp; 07:15 → 10:00
+    </div>
+
+    <div class="booking-layout">
+
+        <!-- Booking Form -->
+        <div class="form-card" id="booking-form-wrap">
+            <h2>Passenger Information</h2>
+
+            <form id="booking-form">
+
+                <!-- Train Selection -->
+                <h3 style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px;">Select Train</h3>
+                <div class="form-field">
+                    <label>From Station</label>
+                    <select>
+                        <option>Colombo Fort</option>
+                        <option>Kandy</option>
+                        <option>Galle</option>
+                        <option>Jaffna</option>
+                        <option>Badulla</option>
+                        <option>Matara</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label>To Station</label>
+                    <select>
+                        <option>Kandy</option>
+                        <option>Colombo Fort</option>
+                        <option>Galle</option>
+                        <option>Jaffna</option>
+                        <option>Badulla</option>
+                        <option>Matara</option>
+                    </select>
+                </div>
+
+                <div class="form-row-2">
+                    <div class="form-field">
+                        <label>Travel Date</label>
+                        <input type="date" id="dep-date">
+                    </div>
+                    <div class="form-field">
+                        <label>Seat Class</label>
+                        <select id="b-class" required>
+                            <option value="">-- Select Class --</option>
+                            <option value="1">First Class — LKR 850</option>
+                            <option value="2">Second Class — LKR 480</option>
+                            <option value="3">Third Class — LKR 280</option>
+                        </select>
+                        <span class="error-msg" id="b-class-err"></span>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label>Number of Seats</label>
+                    <div class="qty-control">
+                        <button type="button" class="qty-btn" data-action="dec" data-target="b-seats">−</button>
+                        <input type="number" id="b-seats" class="qty-display" value="1" min="1" max="6" readonly>
+                        <button type="button" class="qty-btn" data-action="inc" data-target="b-seats">+</button>
+                        <span style="font-size:13px;color:var(--gray);">(max 6 per booking)</span>
+                    </div>
+                </div>
+
+                <div class="fare-box alert alert-info mb-24 mt-8">
+                    Estimated Fare: <strong id="fare-display"></strong>
+                </div>
+
+                <div class="divider"></div>
+
+                <h3 style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px;">Passenger Details</h3>
+
+                <div class="form-row-2">
+                    <div class="form-field">
+                        <label>First Name *</label>
+                        <input type="text" id="b-fname" placeholder="John">
+                        <span class="error-msg" id="b-fname-err"></span>
+                    </div>
+                    <div class="form-field">
+                        <label>Last Name *</label>
+                        <input type="text" id="b-lname" placeholder="Perera">
+                        <span class="error-msg" id="b-lname-err"></span>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label>NIC / Passport Number *</label>
+                    <input type="text" id="b-nic" placeholder="e.g. 991234567V or P12345678">
+                    <span class="error-msg" id="b-nic-err"></span>
+                </div>
+
+                <div class="form-row-2">
+                    <div class="form-field">
+                        <label>Phone Number *</label>
+                        <input type="tel" id="b-phone" placeholder="+94 77 123 4567">
+                        <span class="error-msg" id="b-phone-err"></span>
+                    </div>
+                    <div class="form-field">
+                        <label>Email (optional)</label>
+                        <input type="email" id="b-email" placeholder="john@example.com">
+                        <span class="error-msg" id="b-email-err"></span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <h3 style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px;">Payment Method</h3>
+
+                <div class="form-field">
+                    <label>Pay By</label>
+                    <select>
+                        <option value="card">Credit / Debit Card</option>
+                        <option value="netbank">Internet Banking</option>
+                        <option value="counter">Cash at Counter</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-gold btn-lg btn-block mt-16">
+                    Confirm Reservation →
+                </button>
+
+                <p style="font-size:12px;color:var(--gray);text-align:center;margin-top:12px;">
+                    By confirming, you agree to our Terms of Use and Cancellation Policy.
+                </p>
+
+            </form>
+        </div>
+
+        <!-- Trip Summary Sidebar -->
+        <div class="trip-summary">
+            <h3>🗓 Trip Summary</h3>
+
+            <div class="summary-row">
+                <span>Train</span>
+                <span>Udarata Menike (1005)</span>
+            </div>
+            <div class="summary-row">
+                <span>From</span>
+                <span>Colombo Fort</span>
+            </div>
+            <div class="summary-row">
+                <span>To</span>
+                <span>Kandy</span>
+            </div>
+            <div class="summary-row">
+                <span>Departure</span>
+                <span>07:15</span>
+            </div>
+            <div class="summary-row">
+                <span>Arrival</span>
+                <span>10:00</span>
+            </div>
+            <div class="summary-row">
+                <span>Duration</span>
+                <span>2 h 45 m</span>
+            </div>
+            <div class="summary-row">
+                <span>Date</span>
+                <span id="summary-date">—</span>
+            </div>
+
+            <div class="summary-total">
+                <span>Total</span>
+                <span id="summary-total">LKR —</span>
+            </div>
+
+            <div style="margin-top:18px;padding:12px;background:var(--sky);border-radius:6px;font-size:12px;color:var(--gray);line-height:1.6;">
+                🛡 Your booking is protected. Cancel up to 2 hours before departure for a full refund.
+            </div>
+
+            <div style="margin-top:14px;font-size:12px;color:var(--gray);">
+                📞 Need help? Call <strong>+94 11 200 0000</strong>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>🚆 RailEase</h4>
+            <p style="font-size:13px;line-height:1.7;">Sri Lanka's most convenient online train ticket booking platform.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="results.html">Search Trains</a></li>
+                <li><a href="booking.html">Book Tickets</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Refund Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="tel:+94112000000">+94 11 200 0000</a></li>
+                <li><a href="mailto:support@railease.lk">support@railease.lk</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 RailEase. All rights reserved. | CSCI 12562 Group Project</p>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    $(document).ready(function () {
+        // Set today date in summary
+        var now = new Date();
+        var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        $("#summary-date").text(now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear());
+
+        // Generate booking reference on page load
+        var ref = Math.floor(10000 + Math.random() * 90000);
+        $("#booking-ref").text(ref);
+
+        // Update summary total when fare changes
+        function updateSummaryTotal() {
+            var text = $("#fare-display").text();
+            if (text) {
+                $("#summary-total").text(text);
+            }
+        }
+
+        // Watch fare changes
+        setInterval(updateSummaryTotal, 500);
+
+        // On success, scroll to top
+        $("#booking-form").on("submit-success", function () {
+            $("html, body").animate({ scrollTop: 0 }, 400);
+        });
+    });
+</script>
+
+</body>
+</html>

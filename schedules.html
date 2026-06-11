@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Schedules - RailEase</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Ticker Bar -->
+<div class="ticker-bar">
+    <div class="ticker-inner">
+        <span>Colombo Fort → Kandy | Departs 07:15 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Galle | Departs 09:45 | Delayed 10 min &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Kandy → Badulla | Departs 08:30 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Jaffna | Departs 06:00 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Galle → Matara | Departs 10:20 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Kandy | Departs 07:15 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Galle | Departs 09:45 | Delayed 10 min &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Kandy → Badulla | Departs 08:30 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Jaffna | Departs 06:00 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Galle → Matara | Departs 10:20 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <div class="logo">
+            <span class="logo-icon">🚆</span>
+            Rail<span>Ease</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="results.html">Search Trains</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-cta"><a href="booking.html">Reserve a Seat</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Banner -->
+<div class="page-banner">
+    <h1>Train Schedules</h1>
+    <p>Browse timetables for all major routes. All times are in Sri Lanka Standard Time (SLST).</p>
+    <div class="live-date mt-8"></div>
+</div>
+
+<div class="page-wrapper">
+
+    <!-- Notice -->
+    <div class="alert alert-info">
+        <span>ℹ️</span>
+        Schedules are subject to change on public holidays. Please confirm on the day of travel.
+    </div>
+
+    <!-- Line Filter Tabs -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;">
+        <button class="btn btn-primary line-tab active" data-line="all">All Lines</button>
+        <button class="btn btn-outline line-tab" data-line="main">Main Line</button>
+        <button class="btn btn-outline line-tab" data-line="coast">Coastal Line</button>
+        <button class="btn btn-outline line-tab" data-line="north">Northern Line</button>
+        <button class="btn btn-outline line-tab" data-line="upcountry">Upcountry Line</button>
+    </div>
+
+    <!-- Main Line -->
+    <div class="schedule-section" data-line="main">
+        <h2 class="section-title">Main Line — Colombo Fort ↔ Badulla</h2>
+        <p class="section-sub">Via Kandy, Peradeniya, Hatton, Nanu Oya</p>
+
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <span>Udarata Menike (Train No. 1005) — Colombo Fort → Badulla</span>
+                <span class="chevron">▼</span>
+            </div>
+            <div class="accordion-body">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Station</th>
+                                <th>Arrives</th>
+                                <th>Departs</th>
+                                <th>Classes</th>
+                                <th>Platform</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Colombo Fort</td><td>—</td><td>05:55</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                            <tr><td>Maradana</td><td>06:02</td><td>06:05</td><td><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>2</td></tr>
+                            <tr><td>Rambukkana</td><td>07:55</td><td>08:05</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                            <tr><td>Kandy</td><td>08:50</td><td>09:05</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>3</td></tr>
+                            <tr><td>Peradeniya Jct.</td><td>09:16</td><td>09:20</td><td><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                            <tr><td>Hatton</td><td>11:20</td><td>11:30</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                            <tr><td>Nanu Oya</td><td>12:05</td><td>12:15</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>2</td></tr>
+                            <tr><td>Badulla</td><td>15:40</td><td>—</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="booking.html" class="btn btn-gold mt-16">Book this Train</a>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <span>Podi Menike (Train No. 1015) — Colombo Fort → Badulla</span>
+                <span class="chevron">▼</span>
+            </div>
+            <div class="accordion-body">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Station</th>
+                                <th>Arrives</th>
+                                <th>Departs</th>
+                                <th>Classes</th>
+                                <th>Platform</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Colombo Fort</td><td>—</td><td>09:45</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>2</td></tr>
+                            <tr><td>Kandy</td><td>12:35</td><td>12:50</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>4</td></tr>
+                            <tr><td>Hatton</td><td>14:50</td><td>15:00</td><td><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                            <tr><td>Badulla</td><td>19:15</td><td>—</td><td><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="booking.html" class="btn btn-gold mt-16">Book this Train</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coastal Line -->
+    <div class="schedule-section" data-line="coast">
+        <div class="divider"></div>
+        <h2 class="section-title">Coastal Line — Colombo Fort ↔ Matara</h2>
+        <p class="section-sub">Via Mount Lavinia, Kalutara, Galle, Weligama</p>
+
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <span>Ruhunu Kumari (Train No. 8730) — Colombo Fort → Matara</span>
+                <span class="chevron">▼</span>
+            </div>
+            <div class="accordion-body">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Station</th>
+                                <th>Arrives</th>
+                                <th>Departs</th>
+                                <th>Classes</th>
+                                <th>Platform</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Colombo Fort</td><td>—</td><td>07:30</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>6</td></tr>
+                            <tr><td>Mount Lavinia</td><td>07:55</td><td>07:57</td><td><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>2</td></tr>
+                            <tr><td>Kalutara North</td><td>09:10</td><td>09:12</td><td><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                            <tr><td>Hikkaduwa</td><td>10:35</td><td>10:37</td><td><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                            <tr><td>Galle</td><td>11:00</td><td>11:15</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>3</td></tr>
+                            <tr><td>Weligama</td><td>12:10</td><td>12:12</td><td><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                            <tr><td>Matara</td><td>12:45</td><td>—</td><td><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>2</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="booking.html" class="btn btn-gold mt-16">Book this Train</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Northern Line -->
+    <div class="schedule-section" data-line="north">
+        <div class="divider"></div>
+        <h2 class="section-title">Northern Line — Colombo Fort ↔ Jaffna</h2>
+        <p class="section-sub">Via Veyangoda, Anuradhapura, Kilinochchi, Elephant Pass</p>
+
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <span>Yal Devi (Train No. 4021) — Colombo Fort → Jaffna</span>
+                <span class="chevron">▼</span>
+            </div>
+            <div class="accordion-body">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Station</th>
+                                <th>Arrives</th>
+                                <th>Departs</th>
+                                <th>Classes</th>
+                                <th>Platform</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Colombo Fort</td><td>—</td><td>06:00</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>5</td></tr>
+                            <tr><td>Anuradhapura</td><td>10:20</td><td>10:40</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>2</td></tr>
+                            <tr><td>Vavuniya</td><td>12:05</td><td>12:20</td><td><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                            <tr><td>Kilinochchi</td><td>14:15</td><td>14:20</td><td><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                            <tr><td>Jaffna</td><td>15:55</td><td>—</td><td><span class="class-pill class-first">1st</span><span class="class-pill class-second">2nd</span><span class="class-pill class-third">3rd</span></td><td>1</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="booking.html" class="btn btn-gold mt-16">Book this Train</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Seat Class Legend -->
+    <h2 class="section-title">Seat Class Guide</h2>
+    <p class="section-sub">Understanding what each class offers</p>
+
+    <div class="card-grid mb-40">
+        <div class="card">
+            <div class="card-icon">🥇</div>
+            <h3>First Class</h3>
+            <p>Air-conditioned, reserved reclining seats. Complimentary meals on long routes. Most comfortable option.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🥈</div>
+            <h3>Second Class</h3>
+            <p>Reserved padded seats, ceiling fans, good legroom. Ideal for medium to long journeys.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🥉</div>
+            <h3>Third Class</h3>
+            <p>Unreserved seats. Budget-friendly option for shorter journeys. First come, first seated.</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>🚆 RailEase</h4>
+            <p style="font-size:13px;line-height:1.7;">Sri Lanka's most convenient online train ticket booking platform.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="results.html">Search Trains</a></li>
+                <li><a href="booking.html">Book Tickets</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Refund Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="tel:+94112000000">+94 11 200 0000</a></li>
+                <li><a href="mailto:support@railease.lk">support@railease.lk</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 RailEase. All rights reserved. | CSCI 12562 Group Project</p>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    // Line filter tabs
+    $(document).ready(function () {
+        $(".line-tab").on("click", function () {
+            $(".line-tab").removeClass("btn-primary").addClass("btn-outline");
+            $(this).removeClass("btn-outline").addClass("btn-primary");
+
+            var line = $(this).data("line");
+            if (line === "all") {
+                $(".schedule-section").show();
+                $(".divider").show();
+            } else {
+                $(".schedule-section").hide();
+                $(".divider").hide();
+                $(".schedule-section[data-line='" + line + "']").show();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

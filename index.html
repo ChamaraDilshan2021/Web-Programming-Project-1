@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailEase - Online Train Ticket Reservation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Ticker Bar -->
+<div class="ticker-bar">
+    <div class="ticker-inner">
+        <span>Colombo Fort → Kandy | Departs 07:15 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Galle | Departs 09:45 | Delayed 10 min &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Kandy → Badulla | Departs 08:30 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Jaffna | Departs 06:00 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Galle → Matara | Departs 10:20 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Kandy | Departs 07:15 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Galle | Departs 09:45 | Delayed 10 min &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Kandy → Badulla | Departs 08:30 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Jaffna | Departs 06:00 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Galle → Matara | Departs 10:20 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <div class="logo">
+            <span class="logo-icon"></span>
+            Rail<span>Ease</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="results.html">Search Trains</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-cta"><a href="booking.html">Reserve a Seat</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="slider">
+        <div class="slide" style="background-image: url('{css,js,images}/train1.jpg');"></div>
+        <div class="slide" style="background-image: url('{css,js,images}/train2.jpg');"></div>
+        <div class="slide" style="background-image: url('{css,js,images}/train3.jpg');"></div>
+        <div class="slide" style="background-image: url('{css,js,images}/train1.jpg');"></div>
+    </div>
+    
+    <div class="hero-content">
+        <h1>Travel Smarter.<br><span>Book Your Train</span> in Minutes.</h1>
+        <p>Fast, reliable, and affordable train tickets across Sri Lanka. Book online and skip the queue.</p>
+        <div class="live-date"></div>
+    </div>
+</section>
+
+<!-- Search Card -->
+<div class="page-wrapper">
+    <div class="search-card">
+        <h2>Find Your Train</h2>
+
+        <div class="trip-toggle">
+            <label>
+                <input type="radio" name="trip" value="one" checked> One Way
+            </label>
+            <label>
+                <input type="radio" name="trip" value="round"> Round Trip
+            </label>
+        </div>
+
+        <form action="results.html" method="get">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>From</label>
+                    <select name="from" required>
+                        <option value="">Select Station</option>
+                        <option value="colombo">Colombo Fort</option>
+                        <option value="kandy">Kandy</option>
+                        <option value="galle">Galle</option>
+                        <option value="jaffna">Jaffna</option>
+                        <option value="badulla">Badulla</option>
+                        <option value="matara">Matara</option>
+                        <option value="vavuniya">Vavuniya</option>
+                        <option value="anuradhapura">Anuradhapura</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>To</label>
+                    <select name="to" required>
+                        <option value="">Select Station</option>
+                        <option value="colombo">Colombo Fort</option>
+                        <option value="kandy">Kandy</option>
+                        <option value="galle">Galle</option>
+                        <option value="jaffna">Jaffna</option>
+                        <option value="badulla">Badulla</option>
+                        <option value="matara">Matara</option>
+                        <option value="vavuniya">Vavuniya</option>
+                        <option value="anuradhapura">Anuradhapura</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="departure-date" name="date" required>
+                </div>
+
+                <div class="form-group" id="return-group" style="display:none;">
+                    <label>Return Date</label>
+                    <input type="date" name="return-date">
+                </div>
+
+                <div class="form-group">
+                    <label>Passengers</label>
+                    <select name="passengers">
+                        <option value="1">1 Passenger</option>
+                        <option value="2">2 Passengers</option>
+                        <option value="3">3 Passengers</option>
+                        <option value="4">4 Passengers</option>
+                        <option value="5">5+ Passengers</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Search Available Trains →</button>
+        </form>
+    </div>
+</div>
+
+<!-- Stats Bar -->
+<div class="stats-bar">
+    <div class="stats-inner">
+        <div class="stat-item">
+            <div class="number">340+</div>
+            <div class="label">Daily Trains</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">80</div>
+            <div class="label">Stations</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">2M+</div>
+            <div class="label">Tickets Sold</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">4.8★</div>
+            <div class="label">Average Rating</div>
+        </div>
+    </div>
+</div>
+
+<!-- Why Us -->
+<div class="page-wrapper">
+    <p class="section-sub">Why choose RailEase?</p>
+    <h2 class="section-title">A smarter way to travel by train</h2>
+
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-icon"></div>
+            <h3>Instant Booking</h3>
+            <p>Book your seat in under 2 minutes. No registration required for quick reservations.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"></div>
+            <h3>Choose Your Seat</h3>
+            <p>Select First, Second, or Third class. All seats are reserved and guaranteed.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"></div>
+            <h3>Easy Cancellation</h3>
+            <p>Plans changed? Cancel up to 2 hours before departure for a full refund.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"></div>
+            <h3>E-Ticket</h3>
+            <p>Receive your ticket instantly by email. Show it on your phone at the station.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"></div>
+            <h3>Secure Payment</h3>
+            <p>Pay safely with card, net banking, or cash on delivery at the ticket counter.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"></div>
+            <h3>24/7 Support</h3>
+            <p>Our support team is always available to help you with bookings and queries.</p>
+        </div>
+    </div>
+
+    <!-- Popular Routes Table -->
+    <h2 class="section-title mt-24">Popular Routes</h2>
+    <p class="section-sub">Frequently booked journeys and estimated travel times</p>
+
+    <div class="table-wrapper mb-40">
+        <table>
+            <thead>
+                <tr>
+                    <th>Route</th>
+                    <th>Distance</th>
+                    <th>Duration</th>
+                    <th>Trains/Day</th>
+                    <th>Starting Fare</th>
+                    <th>Book</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="route-line">
+                            <span>Colombo Fort</span>
+                            <div class="dot"></div>
+                            <div class="track" style="width:60px;"></div>
+                            <span class="loco"></span>
+                            <span>Kandy</span>
+                        </div>
+                    </td>
+                    <td>116 km</td>
+                    <td>~2 h 45 m</td>
+                    <td>12</td>
+                    <td><strong>LKR 280</strong></td>
+                    <td><a href="booking.html" class="btn btn-outline" style="padding:5px 14px;font-size:13px;">Book</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="route-line">
+                            <span>Colombo Fort</span>
+                            <div class="dot"></div>
+                            <div class="track" style="width:60px;"></div>
+                            <span class="loco"></span>
+                            <span>Galle</span>
+                        </div>
+                    </td>
+                    <td>119 km</td>
+                    <td>~2 h 20 m</td>
+                    <td>8</td>
+                    <td><strong>LKR 230</strong></td>
+                    <td><a href="booking.html" class="btn btn-outline" style="padding:5px 14px;font-size:13px;">Book</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="route-line">
+                            <span>Kandy</span>
+                            <div class="dot"></div>
+                            <div class="track" style="width:60px;"></div>
+                            <span class="loco"></span>
+                            <span>Badulla</span>
+                        </div>
+                    </td>
+                    <td>155 km</td>
+                    <td>~5 h 30 m</td>
+                    <td>4</td>
+                    <td><strong>LKR 380</strong></td>
+                    <td><a href="booking.html" class="btn btn-outline" style="padding:5px 14px;font-size:13px;">Book</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="route-line">
+                            <span>Colombo Fort</span>
+                            <div class="dot"></div>
+                            <div class="track" style="width:60px;"></div>
+                            <span class="loco"></span>
+                            <span>Jaffna</span>
+                        </div>
+                    </td>
+                    <td>398 km</td>
+                    <td>~8 h 00 m</td>
+                    <td>3</td>
+                    <td><strong>LKR 550</strong></td>
+                    <td><a href="booking.html" class="btn btn-outline" style="padding:5px 14px;font-size:13px;">Book</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="route-line">
+                            <span>Colombo Fort</span>
+                            <div class="dot"></div>
+                            <div class="track" style="width:60px;"></div>
+                            <span class="loco"></span>
+                            <span>Matara</span>
+                        </div>
+                    </td>
+                    <td>160 km</td>
+                    <td>~3 h 10 m</td>
+                    <td>6</td>
+                    <td><strong>LKR 300</strong></td>
+                    <td><a href="booking.html" class="btn btn-outline" style="padding:5px 14px;font-size:13px;">Book</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>RailEase</h4>
+            <p style="font-size:13px;line-height:1.7;">Sri Lanka's most convenient online train ticket booking platform. Fast, safe, and reliable.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="results.html">Search Trains</a></li>
+                <li><a href="booking.html">Book Tickets</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Refund Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="tel:+94112000000">+94 11 200 0000</a></li>
+                <li><a href="mailto:support@railease.lk">support@railease.lk</a></li>
+                <li><a href="#">Colombo Fort Station,<br>Colombo 01</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 RailEase. All rights reserved. | CSCI 12562 Group Project</p>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

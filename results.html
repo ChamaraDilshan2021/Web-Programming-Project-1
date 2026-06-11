@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - RailEase</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Results-specific styles */
+        .results-header {
+            background: var(--sky);
+            border: 1.5px solid var(--light);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .results-route {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .results-meta {
+            font-size: 13px;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .filter-bar label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gray);
+        }
+
+        .filter-bar select {
+            border: 1.5px solid var(--light);
+            border-radius: 6px;
+            padding: 7px 12px;
+            font-size: 14px;
+            color: var(--text);
+            background: #fff;
+        }
+
+        .train-card {
+            background: #fff;
+            border: 1.5px solid var(--light);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            transition: box-shadow 0.2s;
+        }
+
+        .train-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.09);
+        }
+
+        .train-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .train-name {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--navy);
+        }
+
+        .train-number {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .time-block {
+            text-align: center;
+        }
+
+        .time-block .time {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+
+        .time-block .station {
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: 2px;
+        }
+
+        .duration-block {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .duration-block .dur {
+            font-size: 13px;
+            color: var(--gray);
+            margin-bottom: 4px;
+        }
+
+        .track-anim-wrap {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .track-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--blue);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .track-anim {
+            height: 2px;
+            background: repeating-linear-gradient(90deg, var(--blue) 0, var(--blue) 6px, transparent 6px, transparent 12px);
+            width: 0;
+            overflow: hidden;
+        }
+
+        .loco-icon {
+            font-size: 18px;
+        }
+
+        .price-block {
+            text-align: right;
+        }
+
+        .price-block .price {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--blue);
+        }
+
+        .price-block .per {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .train-card-bottom {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .avail-info {
+            font-size: 13px;
+            color: var(--gray);
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .avail-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Ticker -->
+<div class="ticker-bar">
+    <div class="ticker-inner">
+        <span>Colombo Fort → Kandy | Departs 07:15 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Galle | Departs 09:45 | Delayed 10 min &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Kandy → Badulla | Departs 08:30 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Jaffna | Departs 06:00 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Kandy | Departs 07:15 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Galle | Departs 09:45 | Delayed 10 min &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Kandy → Badulla | Departs 08:30 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>Colombo Fort → Jaffna | Departs 06:00 | On Time &nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <div class="logo">
+            <span class="logo-icon">🚆</span>
+            Rail<span>Ease</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="results.html">Search Trains</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="nav-cta"><a href="booking.html">Reserve a Seat</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Banner -->
+<div class="page-banner">
+    <h1>Available Trains</h1>
+    <p>Select your preferred train and proceed to booking.</p>
+</div>
+
+<div class="page-wrapper">
+
+    <!-- Results Header -->
+    <div class="results-header">
+        <div>
+            <div class="results-route">
+                Colombo Fort &nbsp; → &nbsp; Kandy
+            </div>
+            <div class="results-meta" id="results-date-meta">Thursday, 11 June 2026 &nbsp;|&nbsp; 1 Passenger &nbsp;|&nbsp; One Way</div>
+        </div>
+        <a href="index.html" class="btn btn-outline" style="font-size:13px;padding:8px 16px;">Modify Search</a>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <label>Filter by class:</label>
+        <select id="filter-class">
+            <option value="all">All Classes</option>
+            <option value="1">First Class</option>
+            <option value="2">Second Class</option>
+            <option value="3">Third Class</option>
+        </select>
+
+        <label style="margin-left:12px;">Sort by:</label>
+        <select id="sort-trains">
+            <option value="dep">Departure Time</option>
+            <option value="dur">Duration</option>
+            <option value="price">Price (Low → High)</option>
+        </select>
+
+        <span style="font-size:13px;color:var(--gray);">Showing <strong>5</strong> trains</span>
+    </div>
+
+    <!-- Train Cards -->
+    <div class="train-row" data-class="1">
+        <div class="train-card">
+            <div class="train-card-top">
+                <div>
+                    <div class="train-name">Intercity Express</div>
+                    <div class="train-number">Train No. 1040</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time">06:45</div>
+                    <div class="station">Colombo Fort</div>
+                </div>
+
+                <div class="duration-block">
+                    <div class="dur">2 h 30 m</div>
+                    <div class="track-anim-wrap">
+                        <div class="track-dot"></div>
+                        <div class="track-anim" style="width:80px;"></div>
+                        <div class="loco-icon"></div>
+                    </div>
+                    <div class="dur" style="margin-top:4px;">Direct</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time">09:15</div>
+                    <div class="station">Kandy</div>
+                </div>
+
+                <div class="price-block">
+                    <div class="price">LKR 850</div>
+                    <div class="per">per person · 1st Class</div>
+                    <a href="booking.html" class="btn btn-primary mt-8" style="padding:8px 18px;font-size:13px;">Select →</a>
+                </div>
+            </div>
+
+            <div class="train-card-bottom">
+                <div class="avail-info">
+                    <span><span class="class-pill class-first">1st</span> 12 seats left</span>
+                </div>
+                <div>
+                    <span class="badge badge-green">On Time</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="train-row" data-class="2">
+        <div class="train-card">
+            <div class="train-card-top">
+                <div>
+                    <div class="train-name">Udarata Menike</div>
+                    <div class="train-number">Train No. 1005</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time">07:15</div>
+                    <div class="station">Colombo Fort</div>
+                </div>
+
+                <div class="duration-block">
+                    <div class="dur">2 h 45 m</div>
+                    <div class="track-anim-wrap">
+                        <div class="track-dot"></div>
+                        <div class="track-anim" style="width:80px;"></div>
+                        <div class="loco-icon"></div>
+                    </div>
+                    <div class="dur" style="margin-top:4px;">Direct</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time">10:00</div>
+                    <div class="station">Kandy</div>
+                </div>
+
+                <div class="price-block">
+                    <div class="price">LKR 480</div>
+                    <div class="per">per person · 2nd Class</div>
+                    <a href="booking.html" class="btn btn-primary mt-8" style="padding:8px 18px;font-size:13px;">Select →</a>
+                </div>
+            </div>
+
+            <div class="train-card-bottom">
+                <div class="avail-info">
+                    <span><span class="class-pill class-second">2nd</span> 24 seats left</span>
+                    <span><span class="class-pill class-third">3rd</span> 48 seats left</span>
+                </div>
+                <div>
+                    <span class="badge badge-green">On Time</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="train-row" data-class="2">
+        <div class="train-card">
+            <div class="train-card-top">
+                <div>
+                    <div class="train-name">Kandy Express</div>
+                    <div class="train-number">Train No. 1012</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time">09:30</div>
+                    <div class="station">Colombo Fort</div>
+                </div>
+
+                <div class="duration-block">
+                    <div class="dur">3 h 00 m</div>
+                    <div class="track-anim-wrap">
+                        <div class="track-dot"></div>
+                        <div class="track-anim" style="width:80px;"></div>
+                        <div class="loco-icon"></div>
+                    </div>
+                    <div class="dur" style="margin-top:4px;">2 Stops</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time">12:30</div>
+                    <div class="station">Kandy</div>
+                </div>
+
+                <div class="price-block">
+                    <div class="price">LKR 480</div>
+                    <div class="per">per person · 2nd Class</div>
+                    <a href="booking.html" class="btn btn-primary mt-8" style="padding:8px 18px;font-size:13px;">Select →</a>
+                </div>
+            </div>
+
+            <div class="train-card-bottom">
+                <div class="avail-info">
+                    <span><span class="class-pill class-second">2nd</span> 8 seats left</span>
+                    <span><span class="class-pill class-third">3rd</span> Available</span>
+                </div>
+                <div>
+                    <span class="badge badge-yellow">Delayed 15 min</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="train-row" data-class="3">
+        <div class="train-card">
+            <div class="train-card-top">
+                <div>
+                    <div class="train-name">Podi Menike</div>
+                    <div class="train-number">Train No. 1015</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time">12:10</div>
+                    <div class="station">Colombo Fort</div>
+                </div>
+
+                <div class="duration-block">
+                    <div class="dur">2 h 55 m</div>
+                    <div class="track-anim-wrap">
+                        <div class="track-dot"></div>
+                        <div class="track-anim" style="width:80px;"></div>
+                        <div class="loco-icon"></div>
+                    </div>
+                    <div class="dur" style="margin-top:4px;">Direct</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time">15:05</div>
+                    <div class="station">Kandy</div>
+                </div>
+
+                <div class="price-block">
+                    <div class="price">LKR 280</div>
+                    <div class="per">per person · 3rd Class</div>
+                    <a href="booking.html" class="btn btn-primary mt-8" style="padding:8px 18px;font-size:13px;">Select →</a>
+                </div>
+            </div>
+
+            <div class="train-card-bottom">
+                <div class="avail-info">
+                    <span><span class="class-pill class-third">3rd</span> Unreserved — Available</span>
+                </div>
+                <div>
+                    <span class="badge badge-green">On Time</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="train-row" data-class="1">
+        <div class="train-card">
+            <div class="train-card-top">
+                <div>
+                    <div class="train-name">Night Express</div>
+                    <div class="train-number">Train No. 1098</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time">18:30</div>
+                    <div class="station">Colombo Fort</div>
+                </div>
+
+                <div class="duration-block">
+                    <div class="dur">2 h 40 m</div>
+                    <div class="track-anim-wrap">
+                        <div class="track-dot"></div>
+                        <div class="track-anim" style="width:80px;"></div>
+                        
+                    </div>
+                    <div class="dur" style="margin-top:4px;">Direct</div>
+                </div>
+
+                <div class="time-block">
+                    <div class="time">21:10</div>
+                    <div class="station">Kandy</div>
+                </div>
+
+                <div class="price-block">
+                    <div class="price">LKR 850</div>
+                    <div class="per">per person · 1st Class</div>
+                    <a href="booking.html" class="btn btn-primary mt-8" style="padding:8px 18px;font-size:13px;">Select →</a>
+                </div>
+            </div>
+
+            <div class="train-card-bottom">
+                <div class="avail-info">
+                    <span><span class="class-pill class-first">1st</span> 4 seats left</span>
+                    <span><span class="class-pill class-second">2nd</span> 19 seats left</span>
+                </div>
+                <div>
+                    <span class="badge badge-green">On Time</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+    <p class="text-center text-gray" style="margin-bottom:40px;font-size:14px;">
+        Prices shown are per person. Taxes and booking fees may apply at checkout.
+    </p>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>RailEase</h4>
+            <p style="font-size:13px;line-height:1.7;">Sri Lanka's most convenient online train ticket booking platform.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedules.html">Schedules</a></li>
+                <li><a href="results.html">Search Trains</a></li>
+                <li><a href="booking.html">Book Tickets</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Refund Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="tel:+94112000000">+94 11 200 0000</a></li>
+                <li><a href="mailto:support@railease.lk">support@railease.lk</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 RailEase. All rights reserved. | CSCI 12562 Group Project</p>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    $(document).ready(function () {
+        // Animate all track lines on load
+        $(".track-anim").each(function () {
+            var $el = $(this);
+            var targetW = $el.css("width");
+            $el.css("width", "0");
+            setTimeout(function () {
+                $el.animate({ width: targetW }, 900);
+            }, 300);
+        });
+
+        // Set meta date
+        var now = new Date();
+        var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        $("#results-date-meta").text(
+            days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear()
+            + " | 1 Passenger | One Way"
+        );
+    });
+</script>
+
+</body>
+</html>
