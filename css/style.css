@@ -65,22 +65,14 @@ header {
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 22px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 0.5px;
+    height: 100%;
+    padding: 5px 0;
+    box-sizing: border-box;
 }
 
-.logo span {
-    color: var(--gold);
-}
-
-.logo-icon {
-    font-size: 26px;
-}
+.logo img {
+    height: 100%;
+    width: auto;
 
 nav ul {
     list-style: none;
