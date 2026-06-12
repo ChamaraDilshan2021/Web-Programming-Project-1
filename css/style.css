@@ -308,14 +308,14 @@ nav ul li a.active {
 }
 
 .btn-primary {
-    background-color: var(--navy);
-    color:var(--navy);
+    background-color: var(--blue);
+    color: #fff;
 }
 
 .btn-primary:hover {
     background-color: #163f6e;
     text-decoration: none;
-    color: var(--navy);
+    color: #fff;
 }
 
 .btn-gold {
@@ -333,6 +333,12 @@ nav ul li a.active {
     background: transparent;
     border: 1.5px solid var(--blue);
     color: var(--blue);
+}
+
+.btn-outline:hover {
+    background: var(--blue);
+    color: #fff;
+    text-decoration: none;
 }
 
 .btn-outline:hover {
