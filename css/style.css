@@ -415,7 +415,7 @@ nav ul li a.active {
 }
 
 .card {
-    background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 60%, var(--blue) 100%);
+    background-color:var(--navy);
     border: 1.5px solid var(--light);
     border-radius: 10px;
     padding: 24px;
@@ -609,7 +609,7 @@ table tbody td {
 .route-line .track {
     flex: 1;
     height: 2px;
-    background: repeating-linear-gradient(90deg, var(--blue) 0, var(--blue) 6px, transparent 6px, transparent 12px);
+    background-color:var(--navy);
 }
 
 .route-line .loco {
