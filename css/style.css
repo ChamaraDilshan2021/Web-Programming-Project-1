@@ -53,26 +53,28 @@ header {
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    height: 60px;
 }
 
 .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 64px;
+    height: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .logo {
-    height: 100%;
-    padding: 5px 0;
-    box-sizing: border-box;
-}
+    height: 100%; /* The container matches the header height */
+    padding: 5px 0; /* Optional: adds a little breathing room */
+    box-sizing: border-box; /* Ensures padding doesn't increase total height */
 
+}
 .logo img {
-    height: 100%;
-    width: auto;
+    height: 100%; /* The image now scales to 100% of the .logo div */
+    width: auto;  /* Maintains the aspect ratio of your logo */
+}
 
 nav ul {
     list-style: none;
