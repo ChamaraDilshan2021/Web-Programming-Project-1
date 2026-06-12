@@ -125,7 +125,7 @@ nav ul li a.active {
 
 /*Page Banner*/
 .page-banner {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    background-color:var(--blue);
     color: #fff;
     padding: 48px 24px;
     text-align: center;
