@@ -66,15 +66,13 @@ header {
 }
 
 .logo {
-    height: 100%; /* The container matches the header height */
-    padding: 5px 0; /* Optional: adds a little breathing room */
-    box-sizing: border-box; /* Ensures padding doesn't increase total height */
-
+    height: 100%;
+    padding: 5px 0;
+    box-sizing: border-box;
 }
 .logo img {
-    height: 100%; /* The image now scales to 100% of the .logo div */
-    width: auto;  /* Maintains the aspect ratio of your logo */
-}
+    height: 100%;
+    width: auto;
 
 nav ul {
     list-style: none;
