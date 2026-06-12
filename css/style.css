@@ -13,6 +13,7 @@
 :root {
     --navy:    #0D1B2A;
     --blue:    #1B4F8A;
+    --lblue:    #87CEEB;
     --sky:     #E8F4FD;
     --white:   #F9FAFB;
     --gold:    #C9A84C;
@@ -219,7 +220,7 @@ nav ul li a.active {
 
 /*Search Form Card*/
 .search-card {
-    background-color:var(--navy);
+    background-color:var(--lblue);
     color: #fff;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.15);
