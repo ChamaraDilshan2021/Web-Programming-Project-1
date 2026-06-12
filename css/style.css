@@ -309,7 +309,7 @@ nav ul li a.active {
 
 .btn-primary {
     background-color: var(--navy);
-    color: #fff;
+    color:var(--navy);
 }
 
 .btn-primary:hover {
