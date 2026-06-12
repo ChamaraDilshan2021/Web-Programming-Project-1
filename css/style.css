@@ -315,7 +315,7 @@ nav ul li a.active {
 .btn-primary:hover {
     background-color: #163f6e;
     text-decoration: none;
-    color: #fff;
+    color: var(--navy);
 }
 
 .btn-gold {
