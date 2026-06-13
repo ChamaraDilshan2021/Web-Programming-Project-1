@@ -49,18 +49,6 @@ function setActiveNav() {
     });
 }
 
-//  Return date toggle
-function initTripToggle() {
-    $("input[name='trip']").on("change", function () {
-        if ($(this).val() === "round") {
-            $("#return-group").show();
-        } else {
-            $("#return-group").hide();
-        }
-    });
-    $("#return-group").hide(); // hide by default (one-way)
-}
-
 //  Accordion 
 function initAccordion() {
     $(".accordion-header").on("click", function () {
