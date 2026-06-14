@@ -53,7 +53,7 @@ header {
     height: 60px;
 }
 
-.header-inner {
+.headerInner {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -96,23 +96,23 @@ nav ul li a.active {
     text-decoration: none;
 }
 
-.nav-cta a {
+.navCta a {
     background-color: var(--gold) !important;
     color: var(--navy) !important;
     font-weight: 700 !important;
 }
 
-.nav-cta a:hover {
+.navCta a:hover {
     background-color: #b8943f !important;
 }
 
-.page-wrapper {
+.pageWrapper {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
-.page-banner {
+.pageBanner {
     background-color:var(--blue);
     color: #fff;
     padding: 48px 24px;
@@ -120,13 +120,13 @@ nav ul li a.active {
     margin-bottom: 40px;
 }
 
-.page-banner h1 {
+.pageBanner h1 {
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 8px;
 }
 
-.page-banner p {
+.pageBanner p {
     color: #93C5FD;
     font-size: 16px;
 }
@@ -144,7 +144,7 @@ nav ul li a.active {
 }
 
 
-.hero-content {
+.heroContent {
     position: relative;
     z-index: 2;
 }
@@ -210,7 +210,7 @@ nav ul li a.active {
     margin-right: auto;
 }
 
-.search-card {
+.searchCard {
     background-color:var(--lblue);
     color: #fff;
     border-radius: 12px;
@@ -222,7 +222,7 @@ nav ul li a.active {
     z-index: 10;
 }
 
-.search-card h2 {
+.searchCard h2 {
     font-size: 18px;
     color: var(--gold);
     margin-bottom: 20px;
@@ -231,21 +231,21 @@ nav ul li a.active {
     padding-bottom: 10px;
 }
 
-.trip-toggle {
+.tripToggle {
     display: flex;
     gap: 20px;
     margin-bottom: 24px;
 }
 
 
-.form-row {
+.formRow {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
     margin-bottom: 16px;
 }
 
-.form-group {
+.formGroup {
     flex: 1;
     min-width: 160px;
     display: flex;
@@ -253,7 +253,7 @@ nav ul li a.active {
     gap: 6px;
 }
 
-.form-group label {
+.formGroup label {
     font-size: 12px;
     font-weight: 600;
     color: var(--gold);
@@ -261,8 +261,8 @@ nav ul li a.active {
     letter-spacing: 0.5px;
 }
 
-.form-group input,
-.form-group select {
+.formGroup input,
+.formGroup select {
     border: 1.5px solid var(--light);
     border-radius: 6px;
     padding: 10px 12px;
@@ -273,8 +273,8 @@ nav ul li a.active {
     width: 100%;
 }
 
-.form-group input:focus,
-.form-group select:focus {
+.formGroup input:focus,
+.formGroup select:focus {
     outline: none;
     border-color: var(--blue);
 }
@@ -290,64 +290,64 @@ nav ul li a.active {
     transition: opacity 0.2s, background 0.2s;
 }
 
-.btn-primary {
+.btnPrimary {
     background-color: #0D1B2A;
     color: #fff;
 }
 
-.btn-primary:hover {
+.btnPrimary:hover {
     background-color: var(--navy);
     text-decoration: none;
     color: #fff;
 }
 
-.btn-gold {
+.btnGold {
     background-color: var(--gold);
     color: var(--navy);
 }
 
-.btn-gold:hover {
+.btnGold:hover {
     background-color: #193452;
     text-decoration: none;
     color: var(--navy);
 }
 
-.btn-outline {
+.btnOutline {
     background: transparent;
     border: 1.5px solid var(--blue);
     color: var(--blue);
 }
 
-.btn-outline:hover {
+.btnOutline:hover {
     background: var(--blue);
     color: #fff;
     text-decoration: none;
 }
 
-.btn-outline:hover {
+.btnOutline:hover {
     background: var(--blue);
     color: #fff;
     text-decoration: none;
 }
 
-.btn-block {
+.btnBlock {
     display: block;
     width: 100%;
     text-align: center;
 }
 
-.btn-lg {
+.btnLg {
     padding: 14px 36px;
     font-size: 16px;
 }
 
-.stats-bar {
+.statsBar {
     background: var(--sky);
     padding: 28px 24px;
     margin-bottom: 48px;
 }
 
-.stats-inner {
+.statsInner {
     display: flex;
     justify-content: center;
     gap: 60px;
@@ -356,37 +356,37 @@ nav ul li a.active {
     margin: 0 auto;
 }
 
-.stat-item {
+.statItem {
     text-align: center;
 }
 
-.stat-item .number {
+.statItem .number {
     font-size: 28px;
     font-weight: 800;
     color: var(--navy);
 }
 
-.stat-item .label {
+.statItem .label {
     font-size: 13px;
     color: var(--gray);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.section-title {
+.sectionTitle {
     font-size: 24px;
     font-weight: 700;
     color: var(--navy);
     margin-bottom: 6px;
 }
 
-.section-sub {
+.sectionSub {
     color: var(--gray);
     font-size: 14px;
     margin-bottom: 28px;
 }
 
-.card-grid {
+.cardGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
@@ -406,7 +406,7 @@ nav ul li a.active {
     transform: translateY(-2px);
 }
 
-.card-icon {
+.cardIcon {
     font-size: 32px;
     margin-bottom: 12px;
 }
@@ -424,7 +424,7 @@ nav ul li a.active {
     line-height: 1.5;
 }
 
-.table-wrapper {
+.tableWrapper {
     overflow-x: auto;
     margin-bottom: 32px;
 }
@@ -469,22 +469,22 @@ table tbody td {
     font-weight: 600;
 }
 
-.badge-green {
+.badgeGreen {
     background: #D1FAE5;
     color: #065F46;
 }
 
-.badge-yellow {
+.badgeYellow {
     background: #FEF3C7;
     color: #92400E;
 }
 
-.badge-red {
+.badgeRed {
     background: #FEE2E2;
     color: #991B1B;
 }
 
-.form-card {
+.formCard {
     background: #fff;
     border: 1.5px solid var(--light);
     border-radius: 10px;
@@ -493,7 +493,7 @@ table tbody td {
     margin: 0 auto 48px;
 }
 
-.form-card h2 {
+.formCard h2 {
     font-size: 20px;
     font-weight: 700;
     color: var(--navy);
@@ -502,11 +502,11 @@ table tbody td {
     padding-bottom: 12px;
 }
 
-.form-field {
+.formField {
     margin-bottom: 20px;
 }
 
-.form-field label {
+.formField label {
     display: block;
     font-size: 13px;
     font-weight: 600;
@@ -516,9 +516,9 @@ table tbody td {
     margin-bottom: 6px;
 }
 
-.form-field input,
-.form-field select,
-.form-field textarea {
+.formField input,
+.formField select,
+.formField textarea {
     width: 100%;
     border: 1.5px solid var(--light);
     border-radius: 6px;
@@ -530,42 +530,42 @@ table tbody td {
     background: #fff;
 }
 
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus {
+.formField input:focus,
+.formField select:focus,
+.formField textarea:focus {
     outline: none;
     border-color: var(--blue);
 }
 
-.form-field textarea {
+.formField textarea {
     resize: vertical;
     min-height: 100px;
 }
 
-.form-row-2 {
+.formRow2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
 }
 
-.error-msg {
+.errorMsg {
     color: var(--danger);
     font-size: 12px;
     margin-top: 4px;
     display: none;
 }
 
-.error-msg.show {
+.errorMsg.show {
     display: block;
 }
 
-.form-field input.invalid,
-.form-field select.invalid,
-.form-field textarea.invalid {
+.formField input.invalid,
+.formField select.invalid,
+.formField textarea.invalid {
     border-color: var(--danger);
 }
 
-.route-line {
+.routeLine {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -574,7 +574,7 @@ table tbody td {
     color: var(--navy);
 }
 
-.route-line .dot {
+.routeLine .dot {
     width: 10px;
     height: 10px;
     background: var(--blue);
@@ -582,13 +582,13 @@ table tbody td {
     flex-shrink: 0;
 }
 
-.route-line .track {
+.routeLine .track {
     flex: 1;
     height: 2px;
     background-color:var(--navy);
 }
 
-.route-line .loco {
+.routeLine .loco {
     font-size: 18px;
 }
 
@@ -603,13 +603,13 @@ table tbody td {
     gap: 10px;
 }
 
-.alert-success {
+.alertSuccess {
     background: #D1FAE5;
     color: #065F46;
     border-left: 4px solid var(--success);
 }
 
-.alert-info {
+.alertInfo {
     background: #EFF6FF;
     color: #1E40AF;
     border-left: 4px solid var(--blue);
@@ -622,7 +622,7 @@ footer {
     padding: 40px 24px 20px;
 }
 
-.footer-grid {
+.footerGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 32px;
@@ -630,7 +630,7 @@ footer {
     margin: 0 auto 32px;
 }
 
-.footer-col h4 {
+.footerCol h4 {
     color: #fff;
     font-size: 14px;
     font-weight: 600;
@@ -639,26 +639,26 @@ footer {
     letter-spacing: 0.5px;
 }
 
-.footer-col ul {
+.footerCol ul {
     list-style: none;
 }
 
-.footer-col ul li {
+.footerCol ul li {
     margin-bottom: 8px;
 }
 
-.footer-col ul li a {
+.footerCol ul li a {
     color: #94A3B8;
     font-size: 14px;
     transition: color 0.2s;
 }
 
-.footer-col ul li a:hover {
+.footerCol ul li a:hover {
     color: #fff;
     text-decoration: none;
 }
 
-.footer-bottom {
+.footerBottom {
     border-top: 1px solid #1E3A5F;
     padding-top: 20px;
     text-align: center;
@@ -668,28 +668,28 @@ footer {
 }
 
 
-.live-date {
+.liveDate {
     font-size: 16px;
     color: var(--sky);
 }
 
 
-.mt-8  { margin-top: 8px; }
-.mt-16 { margin-top: 16px; }
-.mt-24 { margin-top: 24px; }
-.mb-8  { margin-bottom: 8px; }
-.mb-24 { margin-bottom: 24px; }
-.mb-40 { margin-bottom: 40px; }
-.text-center { text-align: center; }
-.text-right  { text-align: right; }
-.text-gold   { color: var(--gold); }
-.text-gray   { color: var(--gray); }
-.text-navy   { color: var(--navy); }
-.fw-700 { font-weight: 700; }
-.d-flex { display: flex; }
-.align-center { align-items: center; }
-.gap-12 { gap: 12px; }
-.justify-between { justify-content: space-between; }
+.mt8  { margin-top: 8px; }
+.mt16 { margin-top: 16px; }
+.mt24 { margin-top: 24px; }
+.mb8  { margin-bottom: 8px; }
+.mb24 { margin-bottom: 24px; }
+.mb40 { margin-bottom: 40px; }
+.textCenter { text-align: center; }
+.textRight  { text-align: right; }
+.textGold   { color: var(--gold); }
+.textGray   { color: var(--gray); }
+.textNavy   { color: var(--navy); }
+.fw700 { font-weight: 700; }
+.dFlex { display: flex; }
+.alignCenter { align-items: center; }
+.gap12 { gap: 12px; }
+.justifyBetween { justify-content: space-between; }
 
 
 .divider {
@@ -699,7 +699,7 @@ footer {
 }
 
 
-.class-pill {
+.classPill {
     display: inline-block;
     padding: 2px 10px;
     border-radius: 20px;
@@ -708,6 +708,6 @@ footer {
     margin-right: 4px;
 }
 
-.class-first  { background: #FEF3C7; color: #92400E; }
-.class-second { background: #E0E7FF; color: #3730A3; }
-.class-third  { background: #F3F4F6; color: #374151; }
+.classFirst  { background: #FEF3C7; color: #92400E; }
+.classSecond { background: #E0E7FF; color: #3730A3; }
+.classThird  { background: #F3F4F6; color: #374151; }

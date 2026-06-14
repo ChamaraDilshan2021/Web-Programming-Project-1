@@ -17,7 +17,7 @@ function updateDateTime() {
     var dateStr = dayName + ", " + date + " " + month + " " + year;
     var timeStr = hours + ":" + minutes + ":" + seconds;
 
-    $(".live-date").text(dateStr + "  |  " + timeStr);
+    $(".liveDate").text(dateStr + "  |  " + timeStr);
 }
 
 function setMinDates() {
@@ -143,7 +143,7 @@ function initBookingForm() {
         if (valid) {
             $("#booking-success").slideDown(300);
             $("html, body").animate({ scrollTop: 0 }, 400);
-            $(this).closest(".form-card").hide();
+            $(this).closest(".formCard").hide();
         }
     });
 }
@@ -160,7 +160,7 @@ function clearError(id) {
 }
 
 // Clear error on input
-$(document).on("input change", ".form-field input, .form-field select, .form-field textarea", function () {
+$(document).on("input change", ".formField input, .formField select, .formField textarea", function () {
     $(this).removeClass("invalid");
     var id = $(this).attr("id");
     if (id) {
@@ -172,7 +172,7 @@ $(document).on("input change", ".form-field input, .form-field select, .form-fie
 function initResultsFilter() {
     $("#filter-class").on("change", function () {
         var val = $(this).val();
-        $(".train-row").each(function () {
+        $(".trainRow").each(function () {
             if (val === "all" || $(this).data("class") === val) {
                 $(this).show();
             } else {
@@ -186,7 +186,7 @@ function initResultsFilter() {
 
 //  Seat counter
 function initSeatCounter() {
-    $(".qty-btn").on("click", function () {
+    $(".qtyBtn").on("click", function () {
         var target = $(this).data("target");
         var $input = $("#" + target);
         var val    = parseInt($input.val()) || 1;
@@ -208,7 +208,7 @@ function updateFare() {
     var price  = prices[cls] || 0;
     var total  = seats * price;
     if (cls && price) {
-        $("#fare-display").text("LKR " + total.toLocaleString()).closest(".fare-box").show();
+        $("#fare-display").text("LKR " + total.toLocaleString()).closest(".fareBox").show();
     }
 }
 

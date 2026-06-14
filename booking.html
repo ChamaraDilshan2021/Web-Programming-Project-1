@@ -8,17 +8,17 @@
     <link rel="icon" type="image/png" href="images/logo.png">
     <style>
 
-        .fare-box {
+        .fareBox {
             display: none;
         }
 
-        .qty-control {
+        .qtyControl {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .qty-btn {
+        .qtyBtn {
             width: 32px;
             height: 32px;
             background: var(--sky);
@@ -34,13 +34,13 @@
             line-height: 1;
         }
 
-        .qty-btn:hover {
+        .qtyBtn:hover {
             background: var(--blue);
             color: #fff;
             border-color: var(--blue);
         }
 
-        .qty-display {
+        .qtyDisplay {
             width: 40px;
             text-align: center;
             border: 1.5px solid var(--light);
@@ -82,7 +82,7 @@
 
 
 <header>
-    <div class="header-inner">
+    <div class="headerInner">
         <div class="logo">
             <img src="images/logo.png">
         </div>
@@ -94,19 +94,19 @@
                 <li><a href="results.html">Search Trains</a></li>
                 <li><a href="booking.html">Book Now</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="nav-cta"><a href="booking.html">Reserve a Seat</a></li>
+                <li class="navCta"><a href="booking.html">Reserve a Seat</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 
-<div class="page-banner">
+<div class="pageBanner">
     <h1>Book Your Ticket</h1>
     <p>Fill in your passenger details to confirm your reservation.</p>
 </div>
 
-<div class="page-wrapper">
+<div class="pageWrapper">
 
     
     <div class="steps">
@@ -117,21 +117,21 @@
     </div>
 
     
-    <div id="booking-success" class="alert alert-success" style="display:none;">
+    <div id="booking-success" class="alert alertSuccess" style="display:none;">
          <strong>Booking Confirmed!</strong>
     </div>
 
-    <div class="booking-layout">
+    <div class="bookingLayout">
 
         
-        <div class="form-card" id="booking-form-wrap">
+        <div class="formCard" id="booking-form-wrap">
             <h2>Passenger Information</h2>
 
             <form id="booking-form">
 
                 
                 <h3 style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px;">Select Train</h3>
-                <div class="form-field">
+                <div class="formField">
                     <label>From Station</label>
                     <select>
                         <option>Colombo Fort</option>
@@ -143,7 +143,7 @@
                     </select>
                 </div>
 
-                <div class="form-field">
+                <div class="formField">
                     <label>To Station</label>
                     <select>
                         <option>Kandy</option>
@@ -155,12 +155,12 @@
                     </select>
                 </div>
 
-                <div class="form-row-2">
-                    <div class="form-field">
+                <div class="formRow2">
+                    <div class="formField">
                         <label>Travel Date</label>
                         <input type="date" id="dep-date">
                     </div>
-                    <div class="form-field">
+                    <div class="formField">
                         <label>Seat Class</label>
                         <select id="b-class" required>
                             <option value="">-- Select Class --</option>
@@ -168,21 +168,21 @@
                             <option value="2">Second Class — LKR 480</option>
                             <option value="3">Third Class — LKR 280</option>
                         </select>
-                        <span class="error-msg" id="b-class-err"></span>
+                        <span class="errorMsg" id="b-class-err"></span>
                     </div>
                 </div>
 
-                <div class="form-field">
+                <div class="formField">
                     <label>Number of Seats</label>
-                    <div class="qty-control">
-                        <button type="button" class="qty-btn" data-action="dec" data-target="b-seats">−</button>
-                        <input type="number" id="b-seats" class="qty-display" value="1" min="1" max="6" readonly>
-                        <button type="button" class="qty-btn" data-action="inc" data-target="b-seats">+</button>
+                    <div class="qtyControl">
+                        <button type="button" class="qtyBtn" data-action="dec" data-target="b-seats">−</button>
+                        <input type="number" id="b-seats" class="qtyDisplay" value="1" min="1" max="6" readonly>
+                        <button type="button" class="qtyBtn" data-action="inc" data-target="b-seats">+</button>
                         <span style="font-size:13px;color:var(--gray);">(max 6 per booking)</span>
                     </div>
                 </div>
 
-                <div class="fare-box alert alert-info mb-24 mt-8">
+                <div class="fareBox alert alertInfo mb24 mt8">
                     Estimated Fare: <strong id="fare-display"></strong>
                 </div>
 
@@ -190,35 +190,35 @@
 
                 <h3 style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px;">Passenger Details</h3>
 
-                <div class="form-row-2">
-                    <div class="form-field">
+                <div class="formRow2">
+                    <div class="formField">
                         <label>First Name *</label>
                         <input type="text" id="b-fname" placeholder="John">
-                        <span class="error-msg" id="b-fname-err"></span>
+                        <span class="errorMsg" id="b-fname-err"></span>
                     </div>
-                    <div class="form-field">
+                    <div class="formField">
                         <label>Last Name *</label>
                         <input type="text" id="b-lname" placeholder="Perera">
-                        <span class="error-msg" id="b-lname-err"></span>
+                        <span class="errorMsg" id="b-lname-err"></span>
                     </div>
                 </div>
 
-                <div class="form-field">
+                <div class="formField">
                     <label>NIC / Passport Number *</label>
                     <input type="text" id="b-nic" placeholder="e.g. 991234567V or P12345678">
-                    <span class="error-msg" id="b-nic-err"></span>
+                    <span class="errorMsg" id="b-nic-err"></span>
                 </div>
 
-                <div class="form-row-2">
-                    <div class="form-field">
+                <div class="formRow2">
+                    <div class="formField">
                         <label>Phone Number *</label>
                         <input type="tel" id="b-phone" placeholder="+94 77 123 4567">
-                        <span class="error-msg" id="b-phone-err"></span>
+                        <span class="errorMsg" id="b-phone-err"></span>
                     </div>
-                    <div class="form-field">
+                    <div class="formField">
                         <label>Email (optional)</label>
                         <input type="email" id="b-email" placeholder="john@example.com">
-                        <span class="error-msg" id="b-email-err"></span>
+                        <span class="errorMsg" id="b-email-err"></span>
                     </div>
                 </div>
 
@@ -226,7 +226,7 @@
 
                 <h3 style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px;">Payment Method</h3>
 
-                <div class="form-field">
+                <div class="formField">
                     <label>Pay By</label>
                     <select>
                         <option value="card">Credit / Debit Card</option>
@@ -235,7 +235,7 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-gold btn-lg btn-block mt-16">
+                <button type="submit" class="btn btnGold btnLg btnBlock mt16">
                     Confirm Reservation
                 </button>
 
@@ -250,12 +250,12 @@
 </div>
 
 <footer>
-    <div class="footer-grid">
-        <div class="footer-col">
+    <div class="footerGrid">
+        <div class="footerCol">
             <h4>YakadaYaka</h4>
             <p style="font-size:13px;line-height:1.7;">Sri Lanka's most convenient online train ticket booking platform.</p>
         </div>
-        <div class="footer-col">
+        <div class="footerCol">
             <h4>Quick Links</h4>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -264,13 +264,13 @@
                 <li><a href="booking.html">Book Tickets</a></li>
             </ul>
         </div>
-        <div class="footer-col">
+        <div class="footerCol">
             <h4>Support</h4>
             <ul>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </div>
-        <div class="footer-col">
+        <div class="footerCol">
             <h4>Contact</h4>
             <ul>
                 <li><a href="tel:+94112000000">+94 112 421 281</a></li>
@@ -278,7 +278,7 @@
             </ul>
         </div>
     </div>
-    <div class="footer-bottom">
+    <div class="footerBottom">
         <p>&copy; 2026 YakadaYaka. All rights reserved.</p>
     </div>
 </footer>
