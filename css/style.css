@@ -309,7 +309,7 @@ nav ul li a.active {
 .btnGold:hover {
     background-color: #193452;
     text-decoration: none;
-    color: var(--navy);
+    color: var(--sky);
 }
 
 .btnOutline {
