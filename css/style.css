@@ -696,7 +696,7 @@ footer {
 
 
 .divider {
-    height: 1px;
+    height: 2px;
     background: var(--light);
     margin: 32px 0;
 }
