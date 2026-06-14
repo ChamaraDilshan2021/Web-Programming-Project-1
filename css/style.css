@@ -106,14 +106,12 @@ nav ul li a.active {
     background-color: #b8943f !important;
 }
 
-/*Page Wrapper*/
 .page-wrapper {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
-/*Page Banner*/
 .page-banner {
     background-color:var(--blue);
     color: #fff;
@@ -486,7 +484,6 @@ table tbody td {
     color: #991B1B;
 }
 
-/*Form Styles (contact/booking pages)*/
 .form-card {
     background: #fff;
     border: 1.5px solid var(--light);
