@@ -1,12 +1,6 @@
-/*
-   Main JavaScript
-*/
-
-//Live Date & Time
 function updateDateTime() {
     var now = new Date();
 
-    // Format: Thursday, 11 June 2026
     var days   = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     var months = ["January","February","March","April","May","June",
                   "July","August","September","October","November","December"];
@@ -26,7 +20,6 @@ function updateDateTime() {
     $(".live-date").text(dateStr + "  |  " + timeStr);
 }
 
-//  Set today's date as min for date pickers
 function setMinDates() {
     var today = new Date().toISOString().split("T")[0];
     $("input[type='date']").each(function () {
@@ -34,11 +27,11 @@ function setMinDates() {
             $(this).attr("min", today);
         }
     });
-    // Set default values
+   
     $("#departure-date, #dep-date").val(today);
 }
 
-//  Active nav link 
+ 
 function setActiveNav() {
     var page = window.location.pathname.split("/").pop() || "index.html";
     $("nav ul li a").each(function () {
@@ -47,41 +40,6 @@ function setActiveNav() {
             $(this).addClass("active");
         }
     });
-}
-
-//  Return date toggle
-function initTripToggle() {
-    $("input[name='trip']").on("change", function () {
-        if ($(this).val() === "round") {
-            $("#return-group").show();
-        } else {
-            $("#return-group").hide();
-        }
-    });
-    $("#return-group").hide(); // hide by default (one-way)
-}
-
-//  Accordion 
-function initAccordion() {
-    $(".accordion-header").on("click", function () {
-        var body    = $(this).next(".accordion-body");
-        var chevron = $(this).find(".chevron");
-
-        $(".accordion-body").not(body).removeClass("open").slideUp(200);
-        $(".chevron").not(chevron).removeClass("open");
-
-        body.toggleClass("open").slideToggle(200);
-        chevron.toggleClass("open");
-    });
-}
-
-//  Ticker duplicate for seamless loop
-function initTicker() {
-    var $inner = $(".ticker-inner");
-    if ($inner.length) {
-        var html = $inner.html();
-        $inner.html(html + html); // duplicate for seamless loop
-    }
 }
 
 //  Form Validation (contact.html) 
@@ -223,14 +181,7 @@ function initResultsFilter() {
         });
     });
 
-    // Animate route line on load
-    $(".track-anim").each(function () {
-        var $el = $(this);
-        $el.css("width", "0");
-        setTimeout(function () {
-            $el.animate({ width: "100%" }, 800);
-        }, 200);
-    });
+    
 }
 
 //  Seat counter
@@ -265,9 +216,6 @@ function updateFare() {
 $(document).ready(function () {
     setActiveNav();
     setMinDates();
-    initTicker();
-    initAccordion();
-    initTripToggle();
     initContactForm();
     initBookingForm();
     initResultsFilter();

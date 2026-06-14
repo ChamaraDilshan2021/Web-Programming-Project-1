@@ -76,20 +76,11 @@
             border-color: var(--success);
         }
 
-        @media (max-width: 760px) {
-            .booking-layout {
-                grid-template-columns: 1fr;
-            }
-            .trip-summary {
-                position: static;
-                order: -1;
-            }
-        }
     </style>
 </head>
 <body>
 
-<!-- Header -->
+
 <header>
     <div class="header-inner">
         <div class="logo">
@@ -109,7 +100,7 @@
     </div>
 </header>
 
-<!-- Banner -->
+
 <div class="page-banner">
     <h1>Book Your Ticket</h1>
     <p>Fill in your passenger details to confirm your reservation.</p>
@@ -117,7 +108,7 @@
 
 <div class="page-wrapper">
 
-    <!-- Progress Steps -->
+    
     <div class="steps">
         <div class="step active">1. Passenger Details</div>
         <div class="step">2. Review</div>
@@ -125,20 +116,20 @@
         <div class="step">4. Confirmation</div>
     </div>
 
-    <!-- Success Message (hidden) -->
+    
     <div id="booking-success" class="alert alert-success" style="display:none;">
          <strong>Booking Confirmed!</strong>
     </div>
 
     <div class="booking-layout">
 
-        <!-- Booking Form -->
+        
         <div class="form-card" id="booking-form-wrap">
             <h2>Passenger Information</h2>
 
             <form id="booking-form">
 
-                <!-- Train Selection -->
+                
                 <h3 style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px;">Select Train</h3>
                 <div class="form-field">
                     <label>From Station</label>
@@ -258,7 +249,6 @@
     </div>
 </div>
 
-<!-- Footer -->
 <footer>
     <div class="footer-grid">
         <div class="footer-col">
@@ -297,16 +287,17 @@
 <script src="js/main.js"></script>
 <script>
     $(document).ready(function () {
-        // Set today date in summary
+        
         var now = new Date();
         var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
         $("#summary-date").text(now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear());
 
-        // Generate booking reference on page load
+        
+
         var ref = Math.floor(10000 + Math.random() * 90000);
         $("#booking-ref").text(ref);
 
-        // Update summary total when fare changes
+
         function updateSummaryTotal() {
             var text = $("#fare-display").text();
             if (text) {
@@ -314,10 +305,11 @@
             }
         }
 
-        // Watch fare changes
+        
         setInterval(updateSummaryTotal, 500);
 
-        // On success, scroll to top
+        
+
         $("#booking-form").on("submit-success", function () {
             $("html, body").animate({ scrollTop: 0 }, 400);
         });

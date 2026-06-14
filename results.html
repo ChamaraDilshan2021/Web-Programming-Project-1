@@ -8,7 +8,6 @@
     <link rel="icon" type="image/png" href="{css,js,images}/logo.png">
     
     <style>
-        /* Results-specific styles */
         .results-header {
             background: var(--sky);
             border: 1.5px solid var(--light);
@@ -121,28 +120,6 @@
             margin-bottom: 4px;
         }
 
-        .track-anim-wrap {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            justify-content: center;
-        }
-
-        .track-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--blue);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .track-anim {
-            height: 2px;
-            background: repeating-linear-gradient(90deg, var(--blue) 0, var(--blue) 6px, transparent 6px, transparent 12px);
-            width: 0;
-            overflow: hidden;
-        }
-
         .loco-icon {
             font-size: 18px;
         }
@@ -189,8 +166,6 @@
     </style>
 </head>
 <body>
-
-<!-- Header -->
 <header>
     <div class="header-inner">
         <div class="logo">
@@ -210,7 +185,7 @@
     </div>
 </header>
 
-<!-- Banner -->
+
 <div class="page-banner">
     <h1>Available Trains</h1>
     <p>Select your preferred train and proceed to booking.</p>
@@ -222,14 +197,14 @@
     <div class="results-header">
         <div>
             <div class="results-route">
-                Colombo Fort &nbsp; → &nbsp; Kandy
+                Colombo Fort &nbsp; → &nbsp; Kandy 
             </div>
             <div class="results-meta" id="results-date-meta">Thursday, 11 June 2026 &nbsp;|&nbsp; 1 Passenger &nbsp;|&nbsp; One Way</div>
         </div>
         <a href="index.html" class="btn btn-outline" style="font-size:13px;padding:8px 16px;">Modify Search</a>
     </div>
 
-    <!-- Filter Bar -->
+    
     <div class="filter-bar">
         <label>Filter by class:</label>
         <select id="filter-class">
@@ -249,7 +224,7 @@
         <span style="font-size:13px;color:var(--gray);">Showing <strong>5</strong> trains</span>
     </div>
 
-    <!-- Train Cards -->
+
     <div class="train-row" data-class="1">
         <div class="train-card">
             <div class="train-card-top">
@@ -465,7 +440,6 @@
 
 </div>
 
-<!-- Footer -->
 <footer>
     <div class="footer-grid">
         <div class="footer-col">
@@ -504,20 +478,13 @@
 <script src="js/main.js"></script>
 <script>
     $(document).ready(function () {
-        // Animate all track lines on load
-        $(".track-anim").each(function () {
-            var $el = $(this);
-            var targetW = $el.css("width");
-            $el.css("width", "0");
-            setTimeout(function () {
-                $el.animate({ width: targetW }, 900);
-            }, 300);
-        });
-
-        // Set meta date
+        
         var now = new Date();
+        
         var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        
         var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        
         $("#results-date-meta").text(
             days[now.getDay()] + ", " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear()
             + " | 1 Passenger | One Way"

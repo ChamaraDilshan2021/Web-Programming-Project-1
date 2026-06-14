@@ -9,7 +9,6 @@
 </head>
 <body>
 
-<!-- Header -->
 <header>
     <div class="header-inner">
         <div class="logo">
@@ -28,7 +27,7 @@
     </div>
 </header>
 
-<!-- Banner -->
+
 <div class="page-banner">
     <h1>Train Schedules</h1>
     <p>Browse timetables for all major routes. All times are in Sri Lanka Standard Time (SLST).</p>
@@ -37,7 +36,7 @@
 
 <div class="page-wrapper">
 
-    <!-- Line Filter Tabs -->
+    
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;">
         <button class="btn btn-primary line-tab active" data-line="all">All Lines</button>
         <button class="btn btn-outline line-tab" data-line="main">Main Line</button>
@@ -45,7 +44,6 @@
         <button class="btn btn-outline line-tab" data-line="north">Northern Line</button>
     </div>
 
-    <!-- Main Line -->
     <div class="schedule-section" data-line="main">
         <h2 class="section-title">Main Line — Colombo Fort ↔ Badulla</h2>
         <p class="section-sub">Via Kandy, Peradeniya, Hatton, Nanu Oya</p>
@@ -75,7 +73,7 @@
                 <a href="booking.html" class="btn btn-gold mt-16">Book this Train</a>
     </div>
 
-    <!-- Coastal Line -->
+    
     <div class="schedule-section" data-line="coast">
         <div class="divider"></div>
         <h2 class="section-title">Coastal Line — Colombo Fort ↔ Matara</h2>
@@ -107,7 +105,7 @@
         
     </div>
 
-    <!-- Northern Line -->
+    
     <div class="schedule-section" data-line="north">
         <div class="divider"></div>
         <h2 class="section-title">Northern Line — Colombo Fort ↔ Jaffna</h2>
@@ -138,7 +136,6 @@
 
     <div class="divider"></div>
 
-    <!-- Seat Class Legend -->
     <h2 class="section-title">Seat Class Guide</h2>
     <p class="section-sub">Understanding what each class offers</p>
 
@@ -162,7 +159,10 @@
 
 </div>
 
-<!-- Footer -->
+
+
+
+
 <footer>
     <div class="footer-grid">
         <div class="footer-col">
@@ -200,7 +200,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="js/main.js"></script>
 <script>
-    // Line filter tabs
     $(document).ready(function () {
         $(".line-tab").on("click", function () {
             $(".line-tab").removeClass("btn-primary").addClass("btn-outline");

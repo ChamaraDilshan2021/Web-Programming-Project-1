@@ -1,8 +1,3 @@
-/*
-   Main Stylesheet
-*/
-
-/*Reset & Base*/
 * {
     margin: 0;
     padding: 0;
@@ -22,6 +17,8 @@
     --success: #16A34A;
     --text:    #1F2937;
 }
+
+
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -136,8 +133,6 @@ nav ul li a.active {
     font-size: 16px;
 }
 
-/*Hero Section (index)*/
-/* Ensure the hero container is the relative parent */
 .hero {
     position: relative;
     overflow: hidden;
@@ -150,17 +145,17 @@ nav ul li a.active {
     justify-content: center;
 }
 
-/* Ensure text is above images */
+
 .hero-content {
     position: relative;
-    z-index: 2; /* High z-index keeps text on top */
+    z-index: 2;
 }
 
 .slider {
     position: absolute;
     top: 0;
     left: 0;
-    width: 400%; /* 4 images total */
+    width: 400%;
     height: 100%;
     display: flex;
     animation: infiniteLoop 20s infinite linear; 
@@ -168,7 +163,7 @@ nav ul li a.active {
 }
 
 .slide {
-    width: 25%; /* 100% divided by 4 images = 25% each */
+    width: 25%;
     height: 100%;
     background-size: cover;
     background-position: center;
@@ -176,16 +171,16 @@ nav ul li a.active {
 
 @keyframes infiniteLoop {
     0% { transform: translateX(0%); }
-    21.25% { transform: translateX(0%); } /* Pause on image 1 */
+    21.25% { transform: translateX(0%); } 
     
     26.25% { transform: translateX(-25%); }
-    47.5% { transform: translateX(-25%); } /* Pause on image 2 */
+    47.5% { transform: translateX(-25%); } 
     
     52.5% { transform: translateX(-50%); }
-    73.75% { transform: translateX(-50%); } /* Pause on image 3 */
+    73.75% { transform: translateX(-50%); } 
     
     78.75% { transform: translateX(-75%); }
-    100% { transform: translateX(-75%); } /* Pause on image 4 (Duplicate) */
+    100% { transform: translateX(-75%); }
     
     
 }
@@ -194,7 +189,7 @@ nav ul li a.active {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Adds a 40% dark tint */
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .hero h1 {
@@ -217,7 +212,6 @@ nav ul li a.active {
     margin-right: auto;
 }
 
-/*Search Form Card*/
 .search-card {
     background-color:var(--lblue);
     color: #fff;
@@ -245,14 +239,6 @@ nav ul li a.active {
     margin-bottom: 24px;
 }
 
-.trip-toggle label {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 500;
-    cursor: pointer;
-    font-size: 14px;
-}
 
 .form-row {
     display: flex;
@@ -295,7 +281,6 @@ nav ul li a.active {
     border-color: var(--blue);
 }
 
-/*Buttons*/
 .btn {
     display: inline-block;
     padding: 11px 28px;
@@ -358,7 +343,6 @@ nav ul li a.active {
     font-size: 16px;
 }
 
-/*Stats Bar (index)*/
 .stats-bar {
     background: var(--sky);
     padding: 28px 24px;
@@ -391,7 +375,6 @@ nav ul li a.active {
     letter-spacing: 0.5px;
 }
 
-/*Section Headings*/
 .section-title {
     font-size: 24px;
     font-weight: 700;
@@ -405,7 +388,6 @@ nav ul li a.active {
     margin-bottom: 28px;
 }
 
-/*Cards*/
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -444,7 +426,6 @@ nav ul li a.active {
     line-height: 1.5;
 }
 
-/*Table Styles*/
 .table-wrapper {
     overflow-x: auto;
     margin-bottom: 32px;
@@ -587,7 +568,6 @@ table tbody td {
     border-color: var(--danger);
 }
 
-/*Train Route Display*/
 .route-line {
     display: flex;
     align-items: center;
@@ -615,74 +595,7 @@ table tbody td {
     font-size: 18px;
 }
 
-/*Accordion (schedule page)*/
-.accordion-item {
-    border: 1.5px solid var(--light);
-    border-radius: 8px;
-    margin-bottom: 12px;
-    overflow: hidden;
-}
 
-.accordion-header {
-    background: var(--sky);
-    padding: 14px 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-    color: var(--navy);
-    user-select: none;
-}
-
-.accordion-header:hover {
-    background: #d0eaf9;
-}
-
-.accordion-body {
-    display: none;
-    padding: 16px 20px;
-    background: #fff;
-}
-
-.accordion-body.open {
-    display: block;
-}
-
-.chevron {
-    transition: transform 0.3s;
-    font-size: 12px;
-}
-
-.chevron.open {
-    transform: rotate(180deg);
-}
-
-/*Ticker / Marquee*/
-.ticker-bar {
-    background: var(--navy);
-    color: #93C5FD;
-    font-size: 13px;
-    padding: 7px 0;
-    overflow: hidden;
-}
-
-.ticker-inner {
-    display: flex;
-    animation: ticker 30s linear infinite;
-    white-space: nowrap;
-}
-
-.ticker-inner span {
-    padding-right: 80px;
-}
-
-@keyframes ticker {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/*Alerts*/
 .alert {
     padding: 14px 18px;
     border-radius: 6px;
@@ -705,7 +618,6 @@ table tbody td {
     border-left: 4px solid var(--blue);
 }
 
-/*Footer*/
 footer {
     background-color: var(--navy);
     color: #94A3B8;
@@ -758,13 +670,13 @@ footer {
     margin: 0 auto;
 }
 
-/*Date display (JS)*/
+
 .live-date {
     font-size: 16px;
     color: var(--sky);
 }
 
-/*Utility*/
+
 .mt-8  { margin-top: 8px; }
 .mt-16 { margin-top: 16px; }
 .mt-24 { margin-top: 24px; }
@@ -782,14 +694,14 @@ footer {
 .gap-12 { gap: 12px; }
 .justify-between { justify-content: space-between; }
 
-/* Divider */
+
 .divider {
     height: 1px;
     background: var(--light);
     margin: 32px 0;
 }
 
-/* Seat class pills */
+
 .class-pill {
     display: inline-block;
     padding: 2px 10px;
