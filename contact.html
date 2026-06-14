@@ -39,32 +39,51 @@
 
 <div class="page-wrapper">
 
-    <!-- Success Alert -->
+    <!-- Success Alert (hidden) -->
     <div id="form-success" class="alert alert-success" style="display:none;">
-        ✅ <strong>Message sent!</strong> Thank you for reaching out. We'll respond within 24 hours.
+        &nbsp;<strong>Message sent!</strong> Thank you for reaching out. We'll respond within 24 hours.
     </div>
 
+    <!-- Contact Info Cards -->
+    <div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-bottom:36px;">
+        <div class="card">
+            <h3>Phone</h3>
+            <p><a href="tel:+94112000000" style="color:var(--light);">+94 11 200 0000</a><br>Mon–Fri, 8am–6pm</p>
+        </div>
+        <div class="card">
+            <h3>Email</h3>
+            <p><a href="mailto:support@railways.lk" style="color:var(--light);">support@railways.lk</a><br>Reply within 24 hours</p>
+        </div>
+        <div class="card">
+            <h3>Address</h3>
+            <p>Colombo Fort Station,<br>Colombo 01, Sri Lanka</p>
+        </div>
+        <div class="card">
+            <h3>Hours</h3>
+            <p>Ticket Counter:<br>Daily 5am – 10pm</p>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
     <div class="contact-layout">
-
-        <!-- Contact Form -->
-        <div class="form-card" style="margin-bottom:0;">
+        <div class="form-card">
             <h2>Send a Message</h2>
+            <form id="contact-form" novalidate>
 
-            <form id="contact-form">
                 <div class="form-field">
-                    <label>Full Name *</label>
+                    <label for="c-name">Full Name *</label>
                     <input type="text" id="c-name" placeholder="John Perera">
                     <span class="error-msg" id="c-name-err"></span>
                 </div>
 
                 <div class="form-field">
-                    <label>Email Address *</label>
+                    <label for="c-email">Email Address *</label>
                     <input type="email" id="c-email" placeholder="john@example.com">
                     <span class="error-msg" id="c-email-err"></span>
                 </div>
 
                 <div class="form-field">
-                    <label>Subject *</label>
+                    <label for="c-subject">Subject *</label>
                     <select id="c-subject">
                         <option value="">-- Select a Topic --</option>
                         <option value="booking">Booking Issue</option>
@@ -78,23 +97,23 @@
                 </div>
 
                 <div class="form-field">
-                    <label>Booking Reference (optional)</label>
-                    <input type="text" placeholder="e.g. RL-2026-48291">
+                    <label for="c-ref">Booking Reference (optional)</label>
+                    <input type="text" id="c-ref" placeholder="e.g. RL-2026-48291">
                 </div>
 
                 <div class="form-field">
-                    <label>Message *</label>
-                    <textarea id="c-message" rows="5" placeholder="Describe your enquiry in detail..."></textarea>
+                    <label for="c-message">Message *</label>
+                    <textarea id="c-message" rows="5" placeholder="Describe your enquiry in detail…"></textarea>
                     <span class="error-msg" id="c-message-err"></span>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-lg btn-block">
-                    Send Message →
+                    Send Message
                 </button>
             </form>
         </div>
-
     </div>
+
 </div>
 
 <!-- Footer -->
