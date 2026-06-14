@@ -42,7 +42,7 @@ function setActiveNav() {
     });
 }
 
-//  Form Validation (contact.html) 
+//  Form Validation - contact.html 
 function initContactForm() {
     $("#contact-form").on("submit", function (e) {
         e.preventDefault();
@@ -95,7 +95,7 @@ function initContactForm() {
     });
 }
 
-//  Form Validation (booking.html) 
+//  Form Validation - booking.html
 function initBookingForm() {
     $("#booking-form").on("submit", function (e) {
         e.preventDefault();
@@ -168,7 +168,7 @@ $(document).on("input change", ".form-field input, .form-field select, .form-fie
     }
 });
 
-//  Search Results Filter (results.html)
+//  Search Results Filter - results.html
 function initResultsFilter() {
     $("#filter-class").on("change", function () {
         var val = $(this).val();
